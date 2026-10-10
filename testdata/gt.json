@@ -1,0 +1,172 @@
+{
+ "c1": {
+  "left": -24.8,
+  "right": 21.0,
+  "unc_left": 2.5,
+  "unc_right": 2.5,
+  "kind": "touching both sides (creases), real ring on finger",
+  "width": 45.8,
+  "centre": -1.9,
+  "unc_width": 3.5,
+  "hand_in_view": true,
+  "inpainted_old_ring": true
+ },
+ "c2": {
+  "left": -25.9,
+  "right": 44.1,
+  "unc_left": 2,
+  "unc_right": 2,
+  "kind": "dark shirt both sides",
+  "width": 70.0,
+  "centre": 9.1,
+  "unc_width": 2.8,
+  "hand_in_view": true,
+  "inpainted_old_ring": true
+ },
+ "c3": {
+  "left": -29.0,
+  "right": 35.0,
+  "unc_left": 5,
+  "unc_right": 5,
+  "kind": "shadowed gaps both sides, bent finger",
+  "width": 64.0,
+  "centre": 3.0,
+  "unc_width": 7.1,
+  "hand_in_view": true,
+  "inpainted_old_ring": true
+ },
+ "c5": {
+  "left": -44.0,
+  "right": 37.5,
+  "unc_left": 5,
+  "unc_right": 3,
+  "kind": "very close+blurred; left soft step to pinky, right shirt",
+  "width": 81.5,
+  "centre": -3.2,
+  "unc_width": 5.8,
+  "alt_measurement": {
+   "left": -43.3,
+   "right": 41.5,
+   "width": 84.7,
+   "centre": -0.9,
+   "axis_error_deg": -2.4
+  },
+  "hand_in_view": true,
+  "inpainted_old_ring": true
+ },
+ "c6": {
+  "left": -45.0,
+  "right": 43.8,
+  "unc_left": 4,
+  "unc_right": 2,
+  "kind": "very close; left crease to middle finger, right shirt",
+  "width": 88.8,
+  "centre": -0.6,
+  "unc_width": 4.5,
+  "alt_measurement": {
+   "left": -45.8,
+   "right": 43.9,
+   "width": 89.3,
+   "centre": -0.9,
+   "axis_error_deg": -4.9
+  },
+  "hand_in_view": false,
+  "inpainted_old_ring": true,
+  "note": "shirt-side edge (+44) is clear; the crease to the touching middle finger is ambiguous: shadow valley at about -45 (both measurers) vs a redness drop at about -30 (critic). Treat width 74-89 px as acceptable."
+ },
+ "c7": {
+  "left": -14.5,
+  "right": 34.5,
+  "unc_left": 3,
+  "unc_right": 3,
+  "kind": "backlit+blurred; left washed-out shirt, right faint bright gap",
+  "width": 49.0,
+  "centre": 10.0,
+  "unc_width": 4.2,
+  "alt_measurement": {
+   "left": -13.0,
+   "right": 39.9,
+   "width": 52.9,
+   "centre": 13.4,
+   "axis_error_deg": 1.7
+  },
+  "hand_in_view": false,
+  "inpainted_old_ring": true,
+  "note": "backlit and motion-blurred; today's ring is ~30% outside the finger at the lower edge"
+ },
+ "rh0": {
+  "left": -13.1,
+  "right": 20.4,
+  "unc_left": 1,
+  "unc_right": 1,
+  "kind": "white background (threshold GT)",
+  "width": 33.5,
+  "centre": 3.6,
+  "unc_width": 1.4,
+  "hand_in_view": true,
+  "inpainted_old_ring": false
+ },
+ "rh1": {
+  "left": -12.9,
+  "right": 20.5,
+  "unc_left": 1,
+  "unc_right": 1,
+  "kind": "white background (threshold GT)",
+  "width": 33.4,
+  "centre": 3.8,
+  "unc_width": 1.4,
+  "hand_in_view": true,
+  "inpainted_old_ring": false
+ },
+ "lh0": {
+  "left": -20.1,
+  "right": 13.3,
+  "unc_left": 1,
+  "unc_right": 1,
+  "kind": "white background (threshold GT)",
+  "width": 33.4,
+  "centre": -3.4,
+  "unc_width": 1.4,
+  "hand_in_view": true,
+  "inpainted_old_ring": false
+ },
+ "lh1": {
+  "left": -20.2,
+  "right": 13.2,
+  "unc_left": 1,
+  "unc_right": 1,
+  "kind": "white background (threshold GT)",
+  "width": 33.4,
+  "centre": -3.5,
+  "unc_width": 1.4,
+  "hand_in_view": true,
+  "inpainted_old_ring": false
+ },
+ "_conventions": {
+  "geometry": "c = MCP13 + 0.69*(PIP14 - MCP13) in 2D image px using landmarks.json; a = unit 2D MCP->PIP; n = (a_y, -a_x) (equals u in main.ring_pose). left/right = signed edge offsets along n from c at the ring line, px.",
+  "frames": "clean1-7 are the user's display frames (already rotated/mirrored as shown): feed them to RingTracker(mirrored=True). Labels: c1 Right, c2 Left, c3 Left, c4 Left, c5 Right, c6 Left, c7 Left. rh/lh = sample photos (true views, mirrored=False); rh0/rh1 and lh0/lh1 are the two hands in each photo.",
+  "inpainted_old_ring": "in clean1-7 the previously drawn ring/labels were painted out (cv.inpaint): pixels inside the old band around the ring line are synthetic; measure on cross-sections outside it and extrapolate.",
+  "hand_in_view": "false when landmarks fall outside the frame (wrist cut off): c6, c7",
+  "c4": "sideways hand (ring finger hidden behind the pinky): no width GT, the ring must stay hidden; detect with confidence 0.3",
+  "unc": "unc_* are judgement uncertainties in px",
+  "other_fingers": "c1_index / c1_middle use the same convention with that finger's own first bone (Index 5->6, Middle 9->10) instead of 13->14"
+ },
+ "c1_index": {
+  "finger": "Index",
+  "left": -19.0,
+  "right": 22.2,
+  "width": 41.2,
+  "unc_width": 3.0,
+  "kind": "background step / crease valley to the touching middle finger",
+  "note": "added by review: L* profile at the ring row of clean1 (fingers held together)"
+ },
+ "c1_middle": {
+  "finger": "Middle",
+  "left": -23.5,
+  "right": 20.0,
+  "width": 43.5,
+  "unc_width": 3.0,
+  "kind": "crease valleys on both sides (fingers held together)",
+  "note": "added by review: L* profile at the ring row of clean1"
+ }
+}
